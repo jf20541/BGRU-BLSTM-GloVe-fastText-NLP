@@ -5,7 +5,7 @@
 
 
 ## Output 
-```bash
+```
                                ....                   ....                    ....
 Epoch:15/20, Train Accuracy: 93.20%, Eval Accuracy: 88.00%, Eval Precision: 0.8831
 Epoch:16/20, Train Accuracy: 93.39%, Eval Accuracy: 88.07%, Eval Precision: 0.8850
@@ -45,3 +45,19 @@ GRU(
   (sigmoid): Sigmoid()
 )
 ```  
+
+## GPU's Menu Accelerator
+```
+Sat Aug 14 00:31:06 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.42.01    Driver Version: 460.32.03    CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla P100-PCIE...  Off  | 00000000:00:04.0 Off |                    0 |
+| N/A   39C    P0    33W / 250W |   2047MiB / 16280MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+```
