@@ -7,18 +7,17 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
 import config
 
-"""
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('wordnet')
-"""
-
 tokenizer = ToktokTokenizer()
 stopword_list = nltk.corpus.stopwords.words("english")
 
 
 def remove_special_characters(text):
+    """Remove unwanted characters (noise)
+    Args:
+        text (string): description review
+    Returns:
+        [string]: cleaner reviews
+    """
     soup = BeautifulSoup(text, "html.parser")
     review = soup.get_text()
     review = r"[^a-zA-z0-9\s]"
@@ -27,6 +26,12 @@ def remove_special_characters(text):
 
 
 def remove_stopwords(text):
+    """Removing stopwords (common words) to reduce computation, noise, improve performance
+    Args:
+        text (string): description review
+    Returns:
+        [string]: more relevant retrieval for each review
+    """
     tokens = tokenizer.tokenize(text)
     tokens = [token.strip() for token in tokens]
     filtered_tokens = [token for token in tokens if token not in stopword_list]
