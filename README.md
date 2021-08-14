@@ -1,5 +1,4 @@
-# GRU-Sentiment-NLP
-
+# BiGRU-Sentiment-NLP
 
 ## Objective
 
