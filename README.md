@@ -1,7 +1,7 @@
 # BiGRU-Sentiment-NLP
 
 ## Objective
-
+Predict a binary NLP sentiment classification for the IMDB dataset with 50,000 reviews and evenly distributed target values **[1:Positive & 2:Negative]** using a **Gated Recurrent Unit**. Feature Engineer the reviews by cleaning, removing stop-words, tokenizing before obtaining a vector representation for each token using **GloVe pre-trained word embeddings**. Measure GRU performance with **accuracy score** since the target values are evenly distributed. 
 
 ## Output 
 ```
