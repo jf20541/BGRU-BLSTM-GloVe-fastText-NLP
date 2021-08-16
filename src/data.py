@@ -12,11 +12,11 @@ stopword_list = nltk.corpus.stopwords.words("english")
 
 
 def remove_special_characters(text):
-    """Remove unwanted characters (noise)
+    """Remove unwanted characters [!@#$%^&*()]
     Args:
-        text (string): description review
+        text (str): description review
     Returns:
-        [string]: cleaner reviews
+        [str]: cleaned reviews
     """
     soup = BeautifulSoup(text, "html.parser")
     review = soup.get_text()
@@ -28,9 +28,9 @@ def remove_special_characters(text):
 def remove_stopwords(text):
     """Removing stopwords (common words) to reduce computation, noise, improve performance
     Args:
-        text (string): description review
+        text (str): description review
     Returns:
-        [string]: more relevant retrieval for each review
+        [str]: more relevant retrieval for each review
     """
     tokens = tokenizer.tokenize(text)
     tokens = [token.strip() for token in tokens]
