@@ -3,8 +3,6 @@ from bs4 import BeautifulSoup
 import re
 import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import wordnet
 import config
 
 tokenizer = ToktokTokenizer()
