@@ -16,7 +16,7 @@ Epoch:20/20, Train Accuracy: 94.96%, Eval Accuracy: 90.99%, Eval Precision: 0.89
 
 ## Repository File Structure
     ├── src          
-    │   ├── train.py             # Training Bidirectional GRU and evulating metrics 
+    │   ├── train.py             # Training Bidirectional GRU and evaluating metric (accuracy & precision) 
     │   ├── model.py             # Bidirectional Gated Recurrent Unit (GRU) architecture, inherits nn.Module
     │   ├── engine.py            # Class Engine for Training, Evaluation, and Loss function 
     │   ├── dataset.py           # Custom Dataset that return a paris of [input, label] as tensors
