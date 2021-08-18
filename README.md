@@ -52,9 +52,18 @@ Epoch:20/20, Train Accuracy: 89.11%, Eval Accuracy: 86.11%, Eval Precision: 0.89
 
 ## Model's Architecture
 ```
-GRU(
+BIGRU(
   (embedding): Embedding(180446, 100)
-  (lstm): GRU(100, 128, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  (gru): BIGRU(100, 128, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+  (out): Linear(in_features=512, out_features=1, bias=True)
+  (sigmoid): Sigmoid()
+)
+
+
+
+BILSTM(
+  (embedding): Embedding(180446, 100)
+  (lstm): BILSTM(100, 128, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
   (out): Linear(in_features=512, out_features=1, bias=True)
   (sigmoid): Sigmoid()
 )
