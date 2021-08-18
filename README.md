@@ -1,10 +1,10 @@
 # BiGRU-Sentiment-NLP
 
 ## Objective
-Predict a binary NLP sentiment classification for the IMDB dataset with 50,000 reviews with an evenly distributed target values **[1:Positive & 2:Negative]** using a **Gated Recurrent Unit**. Feature Engineer the reviews by cleaning, removing stop-words, tokenizing before obtaining a vector representation for each token using **GloVe pre-trained word embeddings**. Measure GRU performance with **accuracy score** since the target values are evenly distributed. 
+Predict a binary NLP sentiment classification for the IMDB dataset with 50,000 reviews with an evenly distributed target values **[1:Positive & 2:Negative]** using a **Gated Recurrent Unit** and **Long-Short-Term Memory**. Feature Engineer the reviews by cleaning, removing stop-words, tokenizing before obtaining a vector representation for each token using **GloVe pre-trained word embeddings**. Measure GRU performance with **accuracy score** since the target values are evenly distributed. 
 
 ## Output 
-**Bi-Direction GRU**
+**Bi-Directional GRU**
 ```
                                ....                   ....                    ....
 Epoch:15/20, Train Accuracy: 93.20%, Eval Accuracy: 88.00%, Eval Precision: 0.8831
@@ -15,6 +15,19 @@ Epoch:19/20, Train Accuracy: 93.74%, Eval Accuracy: 89.87%, Eval Precision: 0.89
 Epoch:20/20, Train Accuracy: 94.96%, Eval Accuracy: 90.99%, Eval Precision: 0.8970
 ```
 
+**Bi-Directional LSTM**
+```
+                               ....                   ....                    ....
+Epoch:15/20, Train Accuracy: 88.42%, Eval Accuracy: 85.98%, Eval Precision: 0.8911
+Epoch:16/20, Train Accuracy: 88.54%, Eval Accuracy: 86.13%, Eval Precision: 0.8897
+Epoch:17/20, Train Accuracy: 88.64%, Eval Accuracy: 86.09%, Eval Precision: 0.8909
+Epoch:18/20, Train Accuracy: 88.85%, Eval Accuracy: 86.23%, Eval Precision: 0.8838
+
+Epoch    19: reducing learning rate of group 0 to 2.7000e-05.
+
+Epoch:19/20, Train Accuracy: 88.95%, Eval Accuracy: 86.30%, Eval Precision: 0.8864
+Epoch:20/20, Train Accuracy: 89.11%, Eval Accuracy: 86.11%, Eval Precision: 0.8933
+```
 ## Repository File Structure
     ├── src          
     │   ├── train.py             # Training Bidirectional GRU and evaluating metric (accuracy & precision) 
