@@ -3,6 +3,11 @@
 ## Objective
 Predict a binary NLP sentiment classification for the IMDB dataset with 50,000 reviews with an evenly distributed target values **[1:Positive & 2:Negative]** using a Bidirectional **Gated Recurrent Unit** and Bidirectional **Long-Short-Term Memory**. Feature Engineer the reviews by cleaning, removing stop-words, tokenizing before obtaining a vector representation for each token using **GloVe pre-trained word embeddings**. Measure GRU performance with **accuracy score** since the target values are evenly distributed. Bi-GRU outperformed Bi-LSTM with 90.99% and 86.11%, respectively. 
 
+## Bidirectional RNN 
+Bidirectional Recurrent Neural Network's architecture adds a hidden layer that passes information in a backward direction. This allows information to be dependent not only the previous input but also the future values. The forward and backward hidden states are concatenated to obtain the hidden state and input it to the output layer
+![](https://www.researchgate.net/publication/311430194/figure/fig1/AS:436131947913217@1480993367891/BiDirectional-RNN-architecture-for-detecting-clickbaits.png)
+
+
 ## Output 
 **Bi-Directional GRU**
 ```
