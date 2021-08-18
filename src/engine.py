@@ -28,8 +28,8 @@ class Engine:
         final_targets, final_predictions = [], []
         for data in train_loader:
             # get the values from cutom dataset and convert to tensors
-            reviews = data['reviews'].to(self.device, dtype=torch.long)
-            targets = data['targets'].to(self.device, dtype=torch.float)
+            reviews = data["reviews"].to(self.device, dtype=torch.long)
+            targets = data["targets"].to(self.device, dtype=torch.float)
             # zero the parameter gradients
             self.optimizer.zero_grad()
             # forward + backward + optimize

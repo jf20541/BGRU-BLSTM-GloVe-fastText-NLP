@@ -15,7 +15,7 @@ if __name__ == "__main__":
         # Convert a collection of text documents to a matrix of token counts (Bag of Words) and fit
         count_vec = CountVectorizer(tokenizer=word_tokenize, token_pattern=None)
         count_vec.fit(train_df.review)
-        
+
         # transform train/valid data
         x_train = count_vec.transform(train_df.review)
         x_test = count_vec.transform(test_df.review)
@@ -28,4 +28,3 @@ if __name__ == "__main__":
         # calculate accuracy score for each fold
         acc = accuracy_score(test_df.sentiment, pred) * 100
         print(f"Fold: {fold}, Accuracy = {acc:0.2f}")
-

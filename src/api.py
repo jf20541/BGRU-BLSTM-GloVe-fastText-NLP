@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 from model import GRU
 from embeddings import GloVeEmbedding
-import pandas as pd 
+import pandas as pd
 import config
 from keras.preprocessing.text import Tokenizer
 
@@ -14,34 +14,37 @@ from keras.preprocessing.text import Tokenizer
 
 app = Flask(__name__)
 MODEL = None
-DEVICE = 'cpu'
+DEVICE = "cpu"
+
 
 def sentence_prediction(sentence, model):
     review = str(sentence)
-    reviews =  torch.tensor(review[idx, :], dtype=torch.long).unsqueeze(0)
+    reviews = torch.tensor(review[idx, :], dtype=torch.long).unsqueeze(0)
     reviews = reviews.to(DEVICE, dtype=torch.long)
     outputs = model(reviews).cpu().detach().numpy().tolist()
     return outputs
 
+
 @app.route("/predict")
 def predict():
-    sentence = request.args.get('sentence')
+    sentence = request.args.get("sentence")
     positive_prediction = sentence_prediction(sentence, model=MODEL)
     negative_prediction = 1 - positive_prediction
-    
+
     response = {}
-    response['response'] = {
-        'positive': str(positive_prediction),
-        'negative': str(negative_prediction),
-        'sentence': str(sentence),
+    response["response"] = {
+        "positive": str(positive_prediction),
+        "negative": str(negative_prediction),
+        "sentence": str(sentence),
     }
     return jsonify(response)
+
 
 # @app.route("/", methods=["GET", "POST"])
 # def predict():
 #     return render_template("index.html")
 
-sentence = 'I love this movie'
+sentence = "I love this movie"
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(sentence.values.tolist())
 

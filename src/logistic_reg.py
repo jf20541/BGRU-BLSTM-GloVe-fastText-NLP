@@ -10,11 +10,11 @@ if __name__ == "__main__":
     for fold in range(5):
         train_df = df[df.kfold != fold].reset_index(drop=True)
         test_df = df[df.kfold == fold].reset_index(drop=True)
-        
+
         # Convert a collection of text documents to a matrix of token counts (Bag of Words) and fit
         count_vec = CountVectorizer(tokenizer=word_tokenize, token_pattern=None)
         count_vec.fit(train_df.review)
-        
+
         # transform train/valid data
         xtrain = count_vec.transform(train_df.review)
         xtest = count_vec.transform(test_df.review)
@@ -27,4 +27,3 @@ if __name__ == "__main__":
         # calculate accuracy score for each fold
         acc = accuracy_score(test_df.sentiment, pred)
         print(f"Fold: {fold}, Accuracy = {acc:0.2f}")
-
