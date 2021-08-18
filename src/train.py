@@ -107,7 +107,7 @@ def train():
             f"Epoch:{epochs+1}/{config.EPOCHS}, Train Accuracy: {train_metric:.2f}%, Eval Accuracy: {eval_metric:.2f}%, Eval Precision: {prec_score:.4f}"
         )
         print(confusion_matrix(eval_targets, eval_outputs))
-        # saving the model's parameters
+        # save Bi-GRU's parameters
         torch.save(model.state_dict(), config.MODEL_PATH)
 
 
