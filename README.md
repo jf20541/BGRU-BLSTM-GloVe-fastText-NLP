@@ -16,15 +16,23 @@ Epoch:20/20, Train Accuracy: 94.96%, Eval Accuracy: 90.99%, Eval Precision: 0.89
 ```
 **Logistic Regression with Bag of Words**
 ```
-Fold: 0, Accuracy = 0.88
-Fold: 1, Accuracy = 0.89
-Fold: 2, Accuracy = 0.88
-Fold: 3, Accuracy = 0.90
-Fold: 4, Accuracy = 0.89
+Fold: 0, Accuracy = 88.49%
+Fold: 1, Accuracy = 89.09%
+Fold: 2, Accuracy = 88.38%
+Fold: 3, Accuracy = 89.53%
+Fold: 4, Accuracy = 89.31%
+Accuracy Mean = 88.96%
+
 ```
 **Logistic Regression with Bag of Words**
-
-
+```
+Fold: 0, Accuracy = 84.81%
+Fold: 1, Accuracy = 84.81%
+Fold: 2, Accuracy = 84.51%
+Fold: 3, Accuracy = 84.96%
+Fold: 4, Accuracy = 84.80%
+Accuracy Mean = 84.77%
+```
 
 ## Repository File Structure
     ├── src          
@@ -34,6 +42,8 @@ Fold: 4, Accuracy = 0.89
     │   ├── dataset.py           # Custom Dataset that return a paris of [input, label] as tensors
     │   ├── embeddings.py        # GloVe Embeddings
     │   ├── data.py              # Cleaning dataset by removing stopwords and special characters, labeled target values
+    │   ├── logistic_reg.py      # Initialized Logistic Regression with Bag of Words and evaluated metric
+    │   ├── naivebayes.py        # Initialized Naive Bayes Classifier for multinomial models with Bag of Words and evaluated metric
     │   └── config.py            # Define path as global variable
     ├── inputs
     │   ├── clean_train.csv      # Cleaned Data and Featured Engineered with re
