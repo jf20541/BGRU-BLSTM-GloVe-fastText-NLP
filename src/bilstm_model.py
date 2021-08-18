@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 
-class GRU(nn.Module):
+class BILSTM(nn.Module):
     def __init__(
         self,
         embedding_matrix,
@@ -13,7 +13,7 @@ class GRU(nn.Module):
         n_layers,
         dropout,
     ):
-        super(GRU, self).__init__()
+        super(BILSTM, self).__init__()
         # embedding layer with vocab_size and num of embedding columns
         self.embedding = nn.Embedding(vocab_size, embedding_dim)
         # collect of parameter from GloVe

@@ -6,7 +6,8 @@ import torch
 import tensorflow as tf
 from keras.preprocessing.text import Tokenizer
 from dataset import IMDBDataset
-from model import GRU
+from bilstm_model import BILSTM
+from bigru_model import BIGRU
 from engine import Engine
 from embeddings import GloVeEmbedding
 import config
@@ -69,7 +70,7 @@ def train():
 
     # initialize GRU model with defined parameters
     # embedding_matrix (rows, dims), hidden size, num of layers, and dropout respectivaly
-    model = GRU(
+    model = BILSTM(
         embedding_matrix,
         embedding_matrix.shape[0],
         embedding_matrix.shape[1],
