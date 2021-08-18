@@ -39,7 +39,9 @@ def remove_stopwords(text):
 
 if __name__ == "__main__":
     df = pd.read_csv(config.TRAINING_FILE)
+    # label encode sentiment values (1=positive, 0=negative)
     df.sentiment = [1 if each == "positive" else 0 for each in df.sentiment]
+    # apply remove_stopwords and remove_special_characters functions
     df["review"] = df["review"].apply(remove_special_characters)
     df["review"] = df["review"].apply(remove_stopwords)
     df.to_csv(config.TRAINING_FILE_CLEAN, index=False)

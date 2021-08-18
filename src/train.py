@@ -82,7 +82,7 @@ def train():
     model.to(device)
 
     # initialize Adam optimizer
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=config.LEARNING_RATE)
     # adjust the learning rate based on the number of epochs
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode="min", patience=5, factor=0.3, verbose=True
@@ -92,16 +92,15 @@ def train():
 
     for epochs in range(config.EPOCHS):
         # initiating training and evaluation function
-        train_targets, train_outputs = eng.train_fn(train_loader)
+        train_targets, train_outputs = eng.train_fn(train_loader, scheduler)
         eval_targets, eval_outputs = eng.eval_fn(test_loader)
 
         # binary classifier
         eval_outputs = np.array(eval_outputs) >= 0.5
         train_outputs = np.array(train_outputs) >= 0.5
 
-        # calculating accuracy and precision score
+        # calculating accuracy score and precision score
         train_metric = accuracy_score(train_targets, train_outputs)
-        scheduler.step(train_metric)
         eval_metric = accuracy_score(eval_targets, eval_outputs)
         prec_score = precision_score(eval_targets, eval_outputs)
         print(

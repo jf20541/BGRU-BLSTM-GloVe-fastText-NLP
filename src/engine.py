@@ -17,7 +17,7 @@ class Engine:
         """
         return torch.nn.BCELoss()(outputs, targets.view(-1, 1))
 
-    def train_fn(self, train_loader):
+    def train_fn(self, train_loader, scheduler):
         """Loop over our training set and feed the tensor inputs to the GRU model and optimize
         Args:
             train_loader (float tensors): get batches from train_loader [reviews, targets]
@@ -37,6 +37,7 @@ class Engine:
             loss = self.loss_fn(outputs, targets)
             loss.backward()
             self.optimizer.step()
+            scheduler.step()
             # append to empty lists
             final_targets.extend(data["sentiment"].cpu().detach().numpy().tolist())
         return final_targets, final_predictions
