@@ -1,5 +1,6 @@
 TRAINING_FILE = "../inputs/train.csv"
 TRAINING_FILE_CLEAN = "../inputs/clean_train.csv"
+TRAINING_FILE_CLEAN_FOLDS = "../inputs/train_clean_folds.csv"
 MODEL_PATH = "../models/imdb_model.bin"
 GLOVE_PARAMS = "../models/glove.6B.100d.txt"
 TRAIN_BATCH_SIZE = 75
