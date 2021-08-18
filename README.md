@@ -4,6 +4,7 @@
 Predict a binary NLP sentiment classification for the IMDB dataset with 50,000 reviews with an evenly distributed target values **[1:Positive & 2:Negative]** using a **Gated Recurrent Unit**. Feature Engineer the reviews by cleaning, removing stop-words, tokenizing before obtaining a vector representation for each token using **GloVe pre-trained word embeddings**. Measure GRU performance with **accuracy score** since the target values are evenly distributed. 
 
 ## Output 
+**Bi-Direction GRU**
 ```
                                ....                   ....                    ....
 Epoch:15/20, Train Accuracy: 93.20%, Eval Accuracy: 88.00%, Eval Precision: 0.8831
@@ -13,6 +14,17 @@ Epoch:18/20, Train Accuracy: 93.65%, Eval Accuracy: 89.82%, Eval Precision: 0.88
 Epoch:19/20, Train Accuracy: 93.74%, Eval Accuracy: 89.87%, Eval Precision: 0.8989
 Epoch:20/20, Train Accuracy: 94.96%, Eval Accuracy: 90.99%, Eval Precision: 0.8970
 ```
+**Logistic Regression with Bag of Words**
+```
+Fold: 0, Accuracy = 0.88
+Fold: 1, Accuracy = 0.89
+Fold: 2, Accuracy = 0.88
+Fold: 3, Accuracy = 0.90
+Fold: 4, Accuracy = 0.89
+```
+**Logistic Regression with Bag of Words**
+
+
 
 ## Repository File Structure
     ├── src          
