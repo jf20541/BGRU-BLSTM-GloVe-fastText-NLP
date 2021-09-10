@@ -1,16 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 import torch
 import torch.nn as nn
-from model import GRU
+from bigru_model import BIGRU
+from bilstm_model import BILSTM
 from embeddings import GloVeEmbedding
 import pandas as pd
 import config
 from keras.preprocessing.text import Tokenizer
-
-
-# function to make sentiment prediction
-# find a way to save the sentence
-# show the models result
 
 app = Flask(__name__)
 MODEL = None
@@ -55,7 +51,7 @@ embedding_matrix = emb.embedding_matrix(glove_embedding)
 
 
 if __name__ == "__main__":
-    MODEL = GRU(
+    MODEL = BIGRU(
         embedding_matrix,
         embedding_matrix.shape[0],
         embedding_matrix.shape[1],
