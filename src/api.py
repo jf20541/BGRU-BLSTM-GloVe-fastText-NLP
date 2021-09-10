@@ -14,13 +14,12 @@ from keras.preprocessing.text import Tokenizer
 
 app = Flask(__name__)
 MODEL = None
-DEVICE = "cpu"
 
 
 def sentence_prediction(sentence, model):
     review = str(sentence)
     reviews = torch.tensor(review[idx, :], dtype=torch.long).unsqueeze(0)
-    reviews = reviews.to(DEVICE, dtype=torch.long)
+    reviews = reviews.to(config.DEVICE, dtype=torch.long)
     outputs = model(reviews).cpu().detach().numpy().tolist()
     return outputs
 
@@ -66,6 +65,6 @@ if __name__ == "__main__":
         0.2,
     )
     MODEL.load_state_dict(torch.load(config.MODEL_PATH))
-    MODEL.to(DEVICE)
+    MODEL.to(config.DEVICE)
     MODEL.eval()
     app.run()
