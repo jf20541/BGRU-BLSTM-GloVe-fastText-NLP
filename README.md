@@ -9,27 +9,23 @@ Bidirectional Recurrent Neural Network's architecture adds a hidden layer that p
 
 
 ## Output 
-**Bi-Directional GRU**
+**Bi-Directional GRU with fastText Embeddings**
 ```
-                               ....                   ....                    ....
-Epoch:15/20, Train Accuracy: 93.20%, Eval Accuracy: 88.00%, Eval Precision: 0.8831
-Epoch:16/20, Train Accuracy: 93.39%, Eval Accuracy: 88.07%, Eval Precision: 0.8850
-Epoch:17/20, Train Accuracy: 93.51%, Eval Accuracy: 88.10%, Eval Precision: 0.8846
-Epoch:18/20, Train Accuracy: 93.65%, Eval Accuracy: 89.82%, Eval Precision: 0.8885
+Epoch:18/20, Train Accuracy: 93.65%, Eval Accuracy: 89.82%, Eval Precision: 0.8792
+Epoch:19/20, Train Accuracy: 94.07%, Eval Accuracy: 89.87%, Eval Precision: 0.9028
+```
+**Bi-Directional GRU with GloVe Embeddings**
+```
 Epoch:19/20, Train Accuracy: 93.74%, Eval Accuracy: 89.87%, Eval Precision: 0.8989
 Epoch:20/20, Train Accuracy: 94.96%, Eval Accuracy: 90.99%, Eval Precision: 0.8970
 ```
-
-**Bi-Directional LSTM**
+**Bi-Directional LSTM with fastText Embeddings**
 ```
-                               ....                   ....                    ....
-Epoch:15/20, Train Accuracy: 88.42%, Eval Accuracy: 85.98%, Eval Precision: 0.8911
-Epoch:16/20, Train Accuracy: 88.54%, Eval Accuracy: 86.13%, Eval Precision: 0.8897
-Epoch:17/20, Train Accuracy: 88.64%, Eval Accuracy: 86.09%, Eval Precision: 0.8909
-Epoch:18/20, Train Accuracy: 88.85%, Eval Accuracy: 86.23%, Eval Precision: 0.8838
-
-Epoch    19: reducing learning rate of group 0 to 2.7000e-05.
-
+Epoch:19/20, Train Accuracy: 87.29%, Eval Accuracy: 85.12%, Eval Precision: 0.8539
+Epoch:20/20, Train Accuracy: 88.11%, Eval Accuracy: 85.26%, Eval Precision: 0.8688
+```
+**Bi-Directional LSTM with GloVe Embeddings**
+```
 Epoch:19/20, Train Accuracy: 88.95%, Eval Accuracy: 86.30%, Eval Precision: 0.8864
 Epoch:20/20, Train Accuracy: 89.11%, Eval Accuracy: 86.11%, Eval Precision: 0.8933
 ```
@@ -40,7 +36,7 @@ Epoch:20/20, Train Accuracy: 89.11%, Eval Accuracy: 86.11%, Eval Precision: 0.89
     │   ├── bilstm_model.py      # Bidirectional Long-Short Term Memory (LSTM) architecture, inherits nn.Module
     │   ├── engine.py            # Class Engine for Training, Evaluation, and Loss function 
     │   ├── dataset.py           # Custom Dataset that return a paris of [input, label] as tensors
-    │   ├── embeddings.py        # GloVe Embeddings
+    │   ├── embeddings.py        # GloVe Embeddings and fastText Embeddings
     │   ├── data.py              # Cleaning dataset by removing stopwords and special characters, labeled target values
     │   └── config.py            # Define path as global variable
     ├── inputs
