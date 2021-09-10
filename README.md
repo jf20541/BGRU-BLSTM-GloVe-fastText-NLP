@@ -1,4 +1,4 @@
-# BGRU-BLSTM-Sentiment-NLP
+# BGRU-BLSTM-GloVe-fastText-NLP
 
 ## Objective
 Predict a binary NLP sentiment classification for the IMDB dataset with 50,000 reviews with an evenly distributed target values **[1:Positive & 2:Negative]** using a Bidirectional **Gated Recurrent Unit** and Bidirectional **Long-Short-Term Memory**. Feature Engineer the reviews by cleaning, removing stop-words, tokenizing before obtaining a vector representation for each token using **GloVe pre-trained word embeddings**. Measure GRU performance with **accuracy score** since the target values are evenly distributed. Bi-GRU outperformed Bi-LSTM with 90.99% and 86.11%, respectively. 
