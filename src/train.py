@@ -9,11 +9,9 @@ from dataset import IMDBDataset
 from bilstm_model import BILSTM
 from bigru_model import BIGRU
 from engine import Engine
-from embeddings import GloVeEmbedding
+from embeddings import GloVeEmbedding, FastTextEmbedding
 import config
-
-# use device as global variable
-device = torch.device("cuda")
+import codecs
 
 
 def train():
@@ -28,6 +26,17 @@ def train():
     )
     # load and access a word vectors
     glove_embedding = {key: val.values for key, val in glove.T.items()}
+
+    # load fasttext embeddings
+    fasttext_embedding = {}
+    fasttext = codecs.open("../input/fasttext/wiki.simple.vec", encoding="utf-8")
+
+    for line in fasttext:
+        values = line.rstrip().rsplit(" ")
+        word = values[0]
+        coefs = np.asarray(values[1:], dtype="float32")
+        fasttext_embedding[word] = coefs
+    fasttext.close()
 
     # define features and target values
     targets = df[["sentiment"]]
@@ -68,6 +77,10 @@ def train():
     emb = GloVeEmbedding(df.review, glove)
     embedding_matrix = emb.embedding_matrix(glove_embedding)
 
+    # initialize FastTextEmbedding
+    fast = FastTextEmbedding(df.review, fasttext)
+    embedding_matrix = fast.embedding_matrix(fasttext_embedding)
+
     # initialize GRU model with defined parameters
     # embedding_matrix (rows, dims), hidden size, num of layers, and dropout respectivaly
     model = BILSTM(
@@ -80,7 +93,7 @@ def train():
         0.2,
     )
 
-    model.to(device)
+    model.to(config.DEVICE)
 
     # initialize Adam optimizer
     optimizer = torch.optim.Adam(model.parameters(), lr=config.LEARNING_RATE)
@@ -89,7 +102,7 @@ def train():
         optimizer, mode="min", patience=5, factor=0.3, verbose=True
     )
     # initialize Engine class with model, optimizer, and device
-    eng = Engine(model, optimizer, device)
+    eng = Engine(model, optimizer, config.DEVICE)
 
     for epochs in range(config.EPOCHS):
         # initiating training and evaluation function
